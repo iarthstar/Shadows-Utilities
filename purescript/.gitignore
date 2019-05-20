@@ -1,0 +1,22 @@
+# npm
+node_modules
+.npm
+npm-debug.log
+
+# bower
+bower_components
+
+# lock 
+package-lock.json
+yarn.lock
+
+# mac
+.DS_Store
+
+# purescript 
+/generated-docs/
+/.pulp-cache/
+/.psc-package/
+/output/
+/.psc*
+/.psa*

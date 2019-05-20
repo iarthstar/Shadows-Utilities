@@ -1,0 +1,37 @@
+{
+  "name": "copy-paste-shadows",
+  "description": "Plugin to copy paste shadows across layers",
+  "version": "1.0.0",
+  "author": {
+    "name": "Arth K. Gajjar",
+    "email": "iarthstar@gmail.com",
+    "url": "https://github.com/iarthstar"
+  },
+  "keywords": [
+    "sketch",
+    "plugin",
+    "purescript",
+    "javascript",
+    "functional",
+    "node",
+    "shadows",
+    "copy",
+    "paste"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iarthstar/purs-sketch-plugin.git"
+  },
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "setup": "yarn install; yarn install -g skpm; cd purescript; yarn install && bower i; cd ../sketch-plugin; yarn install;",
+    "build": "cd purescript; yarn run build; cd ../sketch-plugin; yarn run build",
+    "watch": "concurrently \"cd purescript; yarn run watch;\" \"cd sketch-plugin; yarn start;\"",
+    "clean": "rm -rf ./plugin-name.sketchplugin ./node_modules; cd ./purescript; yarn run clean; cd ../sketch-plugin; rm -rf ./node_modules;",
+    "start": "yarn run setup && yarn run build;"
+  },
+  "dependencies": {
+    "concurrently": "^4.1.0"
+  }
+}

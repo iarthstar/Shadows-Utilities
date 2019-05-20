@@ -1,0 +1,16 @@
+# npm
+node_modules
+.npm
+npm-debug.log
+
+# lock 
+package-lock.json
+yarn.lock
+
+# mac
+.DS_Store
+
+# purescript 
+/.psc-package/
+/.psc*
+/.psa*

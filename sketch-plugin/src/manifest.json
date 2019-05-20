@@ -1,0 +1,29 @@
+{
+    "name": "Copy Paste Shadows",
+    "description": "Plugin to copy paste shadows across layers",
+    "author": "Arth K. Gajjar",
+    "identifier": "com.iarthstar.copy-paste-shadows",
+    "compatibleVersion": 3,
+    "bundleVersion": 1,
+    "icon": "icon.png",
+    "commands": [{
+            "name": "Copy Shadows",
+            "identifier": "copy-paste-shadows.copy-shadows-identifier",
+            "shortcut": "cmd alt c",
+            "script": "./commands/copy-shadows.js"
+        },
+        {
+            "name": "Paste Shadows",
+            "identifier": "copy-paste-shadows.paste-shadows-identifier",
+            "shortcut": "cmd alt v",
+            "script": "./commands/paste-shadows.js"
+        }
+    ],
+    "menu": {
+        "title": "Copy Paste Shadows",
+        "items": [
+            "copy-paste-shadows.copy-shadows-identifier",
+            "copy-paste-shadows.paste-shadows-identifier"
+        ]
+    }
+}
