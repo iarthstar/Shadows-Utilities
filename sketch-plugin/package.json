@@ -1,7 +1,7 @@
 {
     "name": "copy-paste-shadows",
     "description": "An utility plugin to copy paste shadows across layers",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "license": "MIT",
     "engines": {
         "sketch": ">=49.0"
