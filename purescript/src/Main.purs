@@ -16,6 +16,7 @@ import Sketch.Types (ArtboardLayer(..), GroupLayer(..), ImageLayer(..), Layer(..
 import Sketch.UI as UI
 
 foreign import setShadowsForLayerID :: String -> Foreign -> Effect Unit
+foreign import removeShadowsForLayerID :: String -> Effect Unit
 
 copyShadows :: Effect Unit
 copyShadows = do
@@ -35,7 +36,6 @@ copyShadows = do
                     Nothing -> pure unit
                     Just shadows -> do
                       Settings.setGlobalSettingForKey "copied-shadows" $ encode shadows
-                      UI.message "Shadow copied..."
                 _ -> pure unit
             _ -> pure unit
         _ -> UI.alert "More than one layer selected" "Please select only one layer and try again..."
@@ -51,7 +51,7 @@ pasteShadows = do
         0 -> UI.alert "No Selection" "Please select a layer and try again..."
         _ -> do
           _ <- traverse (applyShadow shadows) layers
-          UI.message "Shadows pasted..."
+          pure unit
     _, _ -> UI.message "Something went wrong..."
   
   where
@@ -71,3 +71,45 @@ pasteShadows = do
             Group (GroupLayer gl) -> gl.id
             Artboard (ArtboardLayer al) -> al.id
       setShadowsForLayerID id (encode shadows)
+
+cutShadows :: Effect Unit
+cutShadows = do
+  Dom.selectedLayers >>= case _ of
+    Left err -> UI.message "Something went wrong..."
+    Right layers -> do
+      case length layers of
+        0 -> UI.alert "No Selection" "Please select a layer and try again..."
+        1 -> do
+          case head layers of
+            Nothing -> UI.message "Something went wrong..."
+            Just (Shape (ShapeLayer sl)) -> do
+              case sl.shapeType of
+                "Rectangle" -> do
+                  let (ShapeStyle style) = sl.style
+                  case style.shadows of
+                    Nothing -> pure unit
+                    Just shadows -> do
+                      Settings.setGlobalSettingForKey "copied-shadows" $ encode shadows
+                      removeShadowsForLayerID sl.id
+                _ -> pure unit
+            _ -> pure unit
+        _ -> UI.alert "More than one layer selected" "Please select only one layer and try again..."
+
+removeShadows :: Effect Unit
+removeShadows = do
+  Dom.selectedLayers >>= case _ of
+    Left err -> UI.message "Something went wrong..."
+    Right layers -> do
+      case length layers of
+        0 -> UI.alert "No Selection" "Please select a layer and try again..."
+        _ -> do
+          _ <- traverse removeShadow layers
+          pure unit
+  where
+    removeShadow :: Layer -> Effect Unit
+    removeShadow layer = removeShadowsForLayerID case layer of
+      Text (TextLayer tl) -> tl.id
+      Image (ImageLayer il) -> il.id
+      Shape (ShapeLayer sl) -> sl.id
+      Group (GroupLayer gl) -> gl.id
+      Artboard (ArtboardLayer al) -> al.id

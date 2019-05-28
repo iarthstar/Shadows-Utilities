@@ -86,22 +86,22 @@ var exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/commands/paste-shadows.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/commands/cut-shadows.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/commands/paste-shadows.js":
-/*!***************************************!*\
-  !*** ./src/commands/paste-shadows.js ***!
-  \***************************************/
+/***/ "./src/commands/cut-shadows.js":
+/*!*************************************!*\
+  !*** ./src/commands/cut-shadows.js ***!
+  \*************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function () {
-  __webpack_require__(/*! ../scripts/output.js */ "./src/scripts/output.js")["Main"].pasteShadows();
+  __webpack_require__(/*! ../scripts/output.js */ "./src/scripts/output.js")["Main"].cutShadows();
 });
 
 /***/ }),
@@ -4303,4 +4303,4 @@ module.exports = require("sketch/ui");
 }
 that['onRun'] = __skpm_run.bind(this, 'default')
 
-//# sourceMappingURL=paste-shadows.js.map
+//# sourceMappingURL=cut-shadows.js.map

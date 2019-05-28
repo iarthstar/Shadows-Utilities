@@ -17,13 +17,27 @@
             "identifier": "copy-paste-shadows.paste-shadows-identifier",
             "shortcut": "ctrl shift v",
             "script": "./commands/paste-shadows.js"
+        },
+        {
+            "name": "Cut Shadows",
+            "identifier": "copy-paste-shadows.cut-shadows-identifier",
+            "shortcut": "ctrl shift x",
+            "script": "./commands/cut-shadows.js"
+        },
+        {
+            "name": "Remove Shadows",
+            "identifier": "copy-paste-shadows.remove-shadows-identifier",
+            "shortcut": "ctrl shift d",
+            "script": "./commands/remove-shadows.js"
         }
     ],
     "menu": {
-        "title": "Copy Paste Shadows",
+        "title": "⚙️ Shadows",
         "items": [
             "copy-paste-shadows.copy-shadows-identifier",
-            "copy-paste-shadows.paste-shadows-identifier"
+            "copy-paste-shadows.paste-shadows-identifier",
+            "copy-paste-shadows.cut-shadows-identifier",
+            "copy-paste-shadows.remove-shadows-identifier"
         ]
     }
 }
