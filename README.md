@@ -4,6 +4,10 @@ An Utility Plugin for copying and pasting shadows across layers.
 
 ![Copy Paste Shadows GIF](https://i.imgur.com/Rtss27r.gif)
 
+## Support
+
+[![Copy Paste Shadows Product Hunt](https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=156834&theme=dark)](https://www.producthunt.com/posts/copy-paste-shadows?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-copy-paste-shadows)
+
 ## User Guide
 
 * Select a layer with shadows
