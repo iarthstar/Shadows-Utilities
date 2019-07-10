@@ -1,6 +1,6 @@
 {
-    "name": "copy-paste-shadows",
-    "description": "An Utility Plugin to copy paste shadows across layers",
+    "name": "shadows-utilities",
+    "description": "An Utility Plugin for shadows",
     "version": "1.0.0",
     "author": {
         "name": "Arth K. Gajjar",

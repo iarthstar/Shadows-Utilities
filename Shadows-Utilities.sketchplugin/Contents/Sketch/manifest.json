@@ -1,33 +1,33 @@
 {
-  "name": "Copy Paste Shadows",
-  "description": "An utility plugin to copy paste shadows across layers",
+  "name": "Shadows Utilities",
+  "description": "An utility plugin for shadows",
   "author": "Arth K. Gajjar",
-  "identifier": "com.iarthstar.copy-paste-shadows",
+  "identifier": "com.iarthstar.shadows-utilities",
   "compatibleVersion": 3,
   "bundleVersion": 1,
   "icon": "icon.png",
   "commands": [
     {
       "name": "Copy Shadows",
-      "identifier": "copy-paste-shadows.copy-shadows-identifier",
+      "identifier": "shadows-utilities.copy-shadows-identifier",
       "shortcut": "ctrl shift c",
       "script": "copy-shadows.js"
     },
     {
       "name": "Paste Shadows",
-      "identifier": "copy-paste-shadows.paste-shadows-identifier",
+      "identifier": "shadows-utilities.paste-shadows-identifier",
       "shortcut": "ctrl shift v",
       "script": "paste-shadows.js"
     },
     {
       "name": "Cut Shadows",
-      "identifier": "copy-paste-shadows.cut-shadows-identifier",
+      "identifier": "shadows-utilities.cut-shadows-identifier",
       "shortcut": "ctrl shift x",
       "script": "cut-shadows.js"
     },
     {
       "name": "Remove Shadows",
-      "identifier": "copy-paste-shadows.remove-shadows-identifier",
+      "identifier": "shadows-utilities.remove-shadows-identifier",
       "shortcut": "ctrl shift d",
       "script": "remove-shadows.js"
     }
@@ -35,10 +35,10 @@
   "menu": {
     "title": "⚙️ Shadows",
     "items": [
-      "copy-paste-shadows.copy-shadows-identifier",
-      "copy-paste-shadows.paste-shadows-identifier",
-      "copy-paste-shadows.cut-shadows-identifier",
-      "copy-paste-shadows.remove-shadows-identifier"
+      "shadows-utilities.copy-shadows-identifier",
+      "shadows-utilities.paste-shadows-identifier",
+      "shadows-utilities.cut-shadows-identifier",
+      "shadows-utilities.remove-shadows-identifier"
     ]
   },
   "version": "1.0.0",
