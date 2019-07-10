@@ -1,0 +1,47 @@
+{
+  "name": "Shadows Utilities",
+  "description": "An utility plugin for shadows",
+  "author": "Arth K. Gajjar",
+  "identifier": "com.iarthstar.shadows-utilities",
+  "compatibleVersion": 3,
+  "bundleVersion": 1,
+  "icon": "icon.png",
+  "commands": [
+    {
+      "name": "Copy Shadows",
+      "identifier": "shadows-utilities.copy-shadows-identifier",
+      "shortcut": "ctrl shift c",
+      "script": "copy-shadows.js"
+    },
+    {
+      "name": "Paste Shadows",
+      "identifier": "shadows-utilities.paste-shadows-identifier",
+      "shortcut": "ctrl shift v",
+      "script": "paste-shadows.js"
+    },
+    {
+      "name": "Cut Shadows",
+      "identifier": "shadows-utilities.cut-shadows-identifier",
+      "shortcut": "ctrl shift x",
+      "script": "cut-shadows.js"
+    },
+    {
+      "name": "Remove Shadows",
+      "identifier": "shadows-utilities.remove-shadows-identifier",
+      "shortcut": "ctrl shift d",
+      "script": "remove-shadows.js"
+    }
+  ],
+  "menu": {
+    "title": "⚙️ Shadows",
+    "items": [
+      "shadows-utilities.copy-shadows-identifier",
+      "shadows-utilities.paste-shadows-identifier",
+      "shadows-utilities.cut-shadows-identifier",
+      "shadows-utilities.remove-shadows-identifier"
+    ]
+  },
+  "version": "1.0.0",
+  "disableCocoaScriptPreprocessor": true,
+  "appcast": "https://raw.githubusercontent.com/iarthstar/copy-paste-shadows/master/.appcast.xml"
+}

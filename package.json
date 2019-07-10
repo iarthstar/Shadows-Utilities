@@ -1,6 +1,6 @@
 {
-    "name": "copy-paste-shadows",
-    "description": "Plugin to copy paste shadows across layers",
+    "name": "shadows-utilities",
+    "description": "An Utility Plugin for shadows",
     "version": "1.0.0",
     "author": {
         "name": "Arth K. Gajjar",
@@ -31,7 +31,8 @@
         "setup": "yarn global add skpm; cd purescript; yarn install && bower i; cd ../sketch-plugin; yarn install;",
         "build": "cd purescript; yarn run build; cd ../sketch-plugin; yarn run build",
         "build-plugin": "cd sketch-plugin; yarn build",
-        "watch": "concurrently \"cd purescript; yarn run watch;\" \"cd sketch-plugin; yarn start;\"",
+        "watch": "concurrently \"cd purescript; yarn watch;\" \"cd sketch-plugin; yarn start;\"",
+        "watch-purescript": "cd purescript; pulp -w build;",
         "clean": "rm -rf ./*.sketchplugin ./node_modules; cd ./purescript; yarn run clean; cd ../sketch-plugin; rm -rf ./node_modules;",
         "start": "yarn build;"
     },

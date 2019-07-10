@@ -1,6 +1,6 @@
 {
-    "name": "copy-paste-shadows",
-    "description": "An utility plugin to copy paste shadows across layers",
+    "name": "shadows-utilities",
+    "description": "An utility plugin for shadows",
     "version": "1.0.0",
     "license": "MIT",
     "engines": {
@@ -11,9 +11,9 @@
         "url": "https://github.com/iarthstar/copy-paste-shadows.git"
     },
     "skpm": {
-        "name": "copy-paste-shadows",
+        "name": "Shadows Utilities",
         "manifest": "src/manifest.json",
-        "main": "../Copy-Paste-Shadows.sketchplugin",
+        "main": "../Shadows-Utilities.sketchplugin",
         "assets": [
             "assets/**/*"
         ]

@@ -1,6 +1,6 @@
-# Copy Paste Shadows
+# Shadows Utilities
 
-An Utility Plugin for copying and pasting shadows across layers.
+An Utility Plugin for shadows i.e Copy, Paste, Cut and Delete Shadows.
 
 ![Copy Paste Shadows GIF](https://i.imgur.com/Rtss27r.gif)
 
@@ -10,14 +10,25 @@ An Utility Plugin for copying and pasting shadows across layers.
 
 ## User Guide
 
-* Select a layer with shadows
-* Press `CTRL + SHIFT + C` to copy shadows
-* Select layers to paste shadows on
-* Press `CTRL + SHIFT + V` to paste shadows
+* Copy Shadows
+    * Select a layer with shadows
+    * Press `CTRL + SHIFT + C` to copy shadows
+
+* Paste Shadows
+    * Select layers to paste shadows on
+    * Press `CTRL + SHIFT + V` to paste shadows
+
+* Cut Shadows
+    * Select layer to cut shadows from
+    * Press `CTRL + SHIFT + X` to cut shadows
+
+* Delete Shadows
+    * Select layer to delete shadows from
+    * Press `CTRL + SHIFT + D` to cut shadows
 
 ## Install
 
-Download or clone the repository, and double click Copy-Paste-Shadows.sketchplugin
+Download or clone the repository, and double click Shadows-Utilities.sketchplugin
 
 ## Install using Sketchpacks
 

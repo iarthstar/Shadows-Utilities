@@ -86,22 +86,22 @@ var exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/commands/copy-shadows.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/commands/remove-shadows.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/commands/copy-shadows.js":
-/*!**************************************!*\
-  !*** ./src/commands/copy-shadows.js ***!
-  \**************************************/
+/***/ "./src/commands/remove-shadows.js":
+/*!****************************************!*\
+  !*** ./src/commands/remove-shadows.js ***!
+  \****************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function () {
-  __webpack_require__(/*! ../scripts/output.js */ "./src/scripts/output.js")["Main"].copyShadows();
+  __webpack_require__(/*! ../scripts/output.js */ "./src/scripts/output.js")["Main"].removeShadows();
 });
 
 /***/ }),
@@ -3199,7 +3199,16 @@ var PS = {};
       return function () {
         var layer = dom.getSelectedDocument().getLayerWithID(id);
         layer.style.shadows = data;
+        return {};
       };
+    };
+  };
+
+  exports["removeShadowsForLayerID"] = function (id) {
+    return function () {
+      var layer = dom.getSelectedDocument().getLayerWithID(id);
+      layer.style.shadows = [];
+      return {};
     };
   };
 })(PS["Main"] = PS["Main"] || {});
@@ -3974,6 +3983,68 @@ var PS = {};
   var Sketch_Types = $PS["Sketch.Types"];
   var Sketch_UI = $PS["Sketch.UI"];
 
+  var removeShadows = function () {
+    var removeShadow = function removeShadow(layer) {
+      return $foreign.removeShadowsForLayerID(function () {
+        if (layer instanceof Sketch_Types.Text) {
+          return layer.value0.id;
+        }
+
+        ;
+
+        if (layer instanceof Sketch_Types.Image) {
+          return layer.value0.id;
+        }
+
+        ;
+
+        if (layer instanceof Sketch_Types.Shape) {
+          return layer.value0.id;
+        }
+
+        ;
+
+        if (layer instanceof Sketch_Types.Group) {
+          return layer.value0.id;
+        }
+
+        ;
+
+        if (layer instanceof Sketch_Types.Artboard) {
+          return layer.value0.id;
+        }
+
+        ;
+        throw new Error("Failed pattern match at Main (line 110, column 50 - line 115, column 41): " + [layer.constructor.name]);
+      }());
+    };
+
+    return function __do() {
+      var v = Sketch_Dom.selectedLayers();
+
+      if (v instanceof Data_Either.Left) {
+        return Sketch_UI.message("Something went wrong...")();
+      }
+
+      ;
+
+      if (v instanceof Data_Either.Right) {
+        var v1 = Data_Array.length(v.value0);
+
+        if (v1 === 0) {
+          return Sketch_UI.alert("No Selection")("Please select a layer and try again...")();
+        }
+
+        ;
+        var v2 = Data_Traversable.traverse(Data_Traversable.traversableArray)(Effect.applicativeEffect)(removeShadow)(v.value0)();
+        return Data_Unit.unit;
+      }
+
+      ;
+      throw new Error("Failed pattern match at Main (line 100, column 26 - line 107, column 20): " + [v.constructor.name]);
+    };
+  }();
+
   var pasteShadows = function () {
     var fetchShadows = function __do() {
       var v = Data_Functor.map(Effect.functorEffect)(Foreign_Class.decode(Foreign_Class.arrayDecode(Sketch_Types.decodeShadow)))(Sketch_Settings.globalSettingForKey("copied-shadows"))();
@@ -4051,13 +4122,73 @@ var PS = {};
 
         ;
         var v3 = Data_Traversable.traverse(Data_Traversable.traversableArray)(Effect.applicativeEffect)(applyShadow(v1.value0))(v.value0)();
-        return Sketch_UI.message("Shadows pasted...")();
+        return Data_Unit.unit;
       }
 
       ;
       return Sketch_UI.message("Something went wrong...")();
     };
   }();
+
+  var cutShadows = function __do() {
+    var v = Sketch_Dom.selectedLayers();
+
+    if (v instanceof Data_Either.Left) {
+      return Sketch_UI.message("Something went wrong...")();
+    }
+
+    ;
+
+    if (v instanceof Data_Either.Right) {
+      var v1 = Data_Array.length(v.value0);
+
+      if (v1 === 0) {
+        return Sketch_UI.alert("No Selection")("Please select a layer and try again...")();
+      }
+
+      ;
+
+      if (v1 === 1) {
+        var v2 = Data_Array.head(v.value0);
+
+        if (v2 instanceof Data_Maybe.Nothing) {
+          return Sketch_UI.message("Something went wrong...")();
+        }
+
+        ;
+
+        if (v2 instanceof Data_Maybe.Just && v2.value0 instanceof Sketch_Types.Shape) {
+          if (v2.value0.value0.shapeType === "Rectangle") {
+            if (v2.value0.value0.style.shadows instanceof Data_Maybe.Nothing) {
+              return Data_Unit.unit;
+            }
+
+            ;
+
+            if (v2.value0.value0.style.shadows instanceof Data_Maybe.Just) {
+              Sketch_Settings.setGlobalSettingForKey("copied-shadows")(Foreign_Class.encode(Foreign_Class.arrayEncode(Sketch_Types.encodeShadow))(v2.value0.value0.style.shadows.value0))();
+              return $foreign.removeShadowsForLayerID(v2.value0.value0.id)();
+            }
+
+            ;
+            throw new Error("Failed pattern match at Main (line 89, column 19 - line 93, column 52): " + [v2.value0.value0.style.shadows.constructor.name]);
+          }
+
+          ;
+          return Data_Unit.unit;
+        }
+
+        ;
+        return Data_Unit.unit;
+      }
+
+      ;
+      return Sketch_UI.alert("More than one layer selected")("Please select only one layer and try again...")();
+    }
+
+    ;
+    throw new Error("Failed pattern match at Main (line 77, column 26 - line 98, column 1): " + [v.constructor.name]);
+  };
 
   var copyShadows = function __do() {
     var v = Sketch_Dom.selectedLayers();
@@ -4095,12 +4226,11 @@ var PS = {};
             ;
 
             if (v2.value0.value0.style.shadows instanceof Data_Maybe.Just) {
-              Sketch_Settings.setGlobalSettingForKey("copied-shadows")(Foreign_Class.encode(Foreign_Class.arrayEncode(Sketch_Types.encodeShadow))(v2.value0.value0.style.shadows.value0))();
-              return Sketch_UI.message("Shadow copied...")();
+              return Sketch_Settings.setGlobalSettingForKey("copied-shadows")(Foreign_Class.encode(Foreign_Class.arrayEncode(Sketch_Types.encodeShadow))(v2.value0.value0.style.shadows.value0))();
             }
 
             ;
-            throw new Error("Failed pattern match at Main (line 34, column 19 - line 39, column 17): " + [v2.value0.value0.style.shadows.constructor.name]);
+            throw new Error("Failed pattern match at Main (line 35, column 19 - line 38, column 88): " + [v2.value0.value0.style.shadows.constructor.name]);
           }
 
           ;
@@ -4116,12 +4246,15 @@ var PS = {};
     }
 
     ;
-    throw new Error("Failed pattern match at Main (line 22, column 26 - line 43, column 1): " + [v.constructor.name]);
+    throw new Error("Failed pattern match at Main (line 23, column 26 - line 43, column 1): " + [v.constructor.name]);
   };
 
   exports["copyShadows"] = copyShadows;
   exports["pasteShadows"] = pasteShadows;
+  exports["cutShadows"] = cutShadows;
+  exports["removeShadows"] = removeShadows;
   exports["setShadowsForLayerID"] = $foreign.setShadowsForLayerID;
+  exports["removeShadowsForLayerID"] = $foreign.removeShadowsForLayerID;
 })(PS);
 
 module.exports = PS;
@@ -4170,4 +4303,4 @@ module.exports = require("sketch/ui");
 }
 that['onRun'] = __skpm_run.bind(this, 'default')
 
-//# sourceMappingURL=copy-shadows.js.map
+//# sourceMappingURL=remove-shadows.js.map
