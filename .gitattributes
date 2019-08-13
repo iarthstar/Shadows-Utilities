@@ -1,3 +1,2 @@
-purescript/*.purs linguist-detectable=true
-sketch-plugin/*.js linguist-detectable=false
-Shadows-Utilities.sketchplugin/*.js linguist-detectable=false
+*.purs linguist-detectable=true
+*.js linguist-detectable=false
