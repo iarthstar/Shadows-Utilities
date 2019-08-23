@@ -6,29 +6,34 @@
     "compatibleVersion": 3,
     "bundleVersion": 1,
     "icon": "icon.png",
-    "commands": [{
+    "commands": [
+        {
             "name": "Copy Shadows",
             "identifier": "shadows-utilities.copy-shadows-identifier",
             "shortcut": "ctrl shift c",
-            "script": "./commands/copy-shadows.js"
+            "script": "./commands/copy-shadows.js",
+            "handler" : "copyShadows"
         },
         {
             "name": "Paste Shadows",
             "identifier": "shadows-utilities.paste-shadows-identifier",
             "shortcut": "ctrl shift v",
-            "script": "./commands/paste-shadows.js"
+            "script": "./commands/copy-shadows.js",
+            "handler" : "pasteShadows"
         },
         {
             "name": "Cut Shadows",
             "identifier": "shadows-utilities.cut-shadows-identifier",
             "shortcut": "ctrl shift x",
-            "script": "./commands/cut-shadows.js"
+            "script": "./commands/copy-shadows.js",
+            "handler" : "cutShadows"
         },
         {
             "name": "Remove Shadows",
             "identifier": "shadows-utilities.remove-shadows-identifier",
             "shortcut": "ctrl shift d",
-            "script": "./commands/remove-shadows.js"
+            "script": "./commands/copy-shadows.js",
+            "handler" : "removeShadows"
         }
     ],
     "menu": {

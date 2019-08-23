@@ -7,11 +7,12 @@
     "output"
   ],
   "dependencies": {
-    "purescript-prelude": "^4.1.0",
-    "purescript-effect": "^2.0.1",
-    "purescript-sketch": "latest"
+    "purescript-prelude": "latest",
+    "purescript-effect": "latest",
+    "purescript-sketch": "iarthstar/purescript-sketch#feature/getInputFromUser",
+    "purescript-lens": "latest"
   },
   "devDependencies": {
-    "purescript-psci-support": "^4.0.0"
+    "purescript-psci-support": "latest"
   }
 }
