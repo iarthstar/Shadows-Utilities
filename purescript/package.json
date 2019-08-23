@@ -8,13 +8,14 @@
   },
   "license": "MIT",
   "scripts": {
+    "postinstall": "bower i",
     "clean": "rm -rf ./output && rm -rf .pulp-cache && rm -rf node_modules && rm -rf bower_components",
     "build": "pulp --then \"echo '\nmodule.exports = PS;' >> ./../sketch-plugin/src/scripts/output.js\" build -O -t ./../sketch-plugin/src/scripts/output.js --skip-entry-point",
     "watch": "pulp -w --then \"echo '\nmodule.exports = PS;' >> ./../sketch-plugin/src/scripts/output.js\" build -O -t ./../sketch-plugin/src/scripts/output.js --skip-entry-point",
     "start": "npm run build"
   },
   "dependencies": {
-    "pulp": "^12.3.1",
-    "purescript": "^0.12.3"
+    "pulp": "latest",
+    "purescript": "latest"
   }
 }

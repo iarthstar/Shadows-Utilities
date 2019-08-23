@@ -26,6 +26,7 @@
         "postinstall": "yarn build && skpm-link"
     },
     "devDependencies": {
-        "@skpm/builder": "^0.5.11"
+        "@skpm/builder": "^0.5.11",
+        "regenerator-runtime": "^0.13.3"
     }
 }
