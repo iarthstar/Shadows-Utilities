@@ -2,9 +2,9 @@
     "name": "Shadows Utilities",
     "description": "An utility plugin for shadows",
     "author": "Arth K. Gajjar",
+    "homepage": "https://github.com/iarthstar/Shadows-Utilities",
     "identifier": "com.iarthstar.shadows-utilities",
-    "compatibleVersion": 3,
-    "bundleVersion": 1,
+    "compatibleVersion": "56",
     "icon": "icon.png",
     "commands": [
         {
