@@ -2,7 +2,13 @@
 <rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
   <channel>
     <item>
+      <enclosure url="https://github.com/iarthstar/Shadows-Utilities/releases/download/v2.1.0/Shadows-Utilities.sketchplugin.zip" sparkle:version="2.1.0"/>
+    </item>
+    <item>
       <enclosure url="https://github.com/iarthstar/copy-paste-shadows/releases/download/v1.0.0/copy-paste-shadows.sketchplugin.zip" sparkle:version="1.0.0"/>
+    </item>
+    <item>
+      <enclosure url="https://github.com/iarthstar/Shadows-Utilities/releases/download/v2.1.0/Shadows-Utilities.sketchplugin.zip" sparkle:version="2.1.0"/>
     </item>
   </channel>
 </rss>
