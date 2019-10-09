@@ -1,4 +1,4 @@
-# Shadows Utilities
+# Shadows Utilities &nbsp; ![Downloads](https://img.shields.io/github/downloads/iarthstar/shadows-utilities/total?style=social)
 
 An Utility Plugin for shadows i.e Copy, Paste, Cut and Delete Shadows.
 
