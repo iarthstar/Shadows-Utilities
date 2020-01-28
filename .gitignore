@@ -1,0 +1,27 @@
+# build artifacts
+/*.sketchplugin/
+
+# npm
+/node_modules/
+/.npm/
+npm-debug.log
+
+# bower
+/bower_components/
+
+# lock 
+package-lock.json
+yarn.lock
+
+# mac
+.DS_Store
+
+# WebStorm
+.idea
+
+# purescript 
+/output/
+/.pulp-cache/
+/.psc-package/
+/.psc*
+/.psa*

@@ -1,0 +1,55 @@
+{
+  "name": "demo-plugin",
+  "version": "1.0.0",
+  "author": {
+    "name": "Arth K. Gajjar",
+    "email": "iarthstar@gmail.com",
+    "url": "https://github.com/iarthstar"
+  },
+  "skpm": {
+    "name": "DemoPlugin",
+    "manifest": "src/manifest.json",
+    "main": "DemoPlugin.sketchplugin",
+    "assets": [
+      "assets/**/*"
+    ]
+  },
+  "keywords": [
+    "sketch",
+    "plugin",
+    "purescript",
+    "template",
+    "functional",
+    "javascript",
+    "nodejs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iarthstar/purs-sketch-plugin.git"
+  },
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "link-skpm": "yarn build && skpm-link",
+    "clean": "rm -rf bower_components node_modules output sketch-assets .pulp-cache DemoPlugin.sketchplugin .purs-repl package-lock.json yarn.lock .psc-ide-port",
+    "checkyarn": "echo \"$npm_execpath\" | grep -q \"yarn\\.js$\" || (echo '⚠️  Use yarn not npm! ⚠️ ' && echo && exit 1)",
+    "preinstall": "$npm_execpath --silent run checkyarn",
+    "postinstall": "yarn setup && yarn build && skpm-link",
+    "build-purs": "pulp --then \"echo 'module.exports = PS;' >> ./output/bundle.js;\" build --skip-entry-point --to ./output/bundle.js",
+    "watch-purs": "pulp --watch --then \"echo 'module.exports = PS;' >> ./output/bundle.js;\" build --skip-entry-point --to ./output/bundle.js",
+    "build": "pulp --then \"echo 'module.exports = PS;' >> ./output/bundle.js; yarn build-skpm;\" build --skip-entry-point --to ./output/bundle.js",
+    "watch": "pulp --watch --then \"echo 'module.exports = PS;' >> ./output/bundle.js; yarn watch-skpm;\" build --skip-entry-point --to ./output/bundle.js",
+    "build-skpm": "skpm-build",
+    "watch-skpm": "skpm-build --watch",
+    "start-skpm": "skpm-build --watch --run",
+    "start": "pulp --watch --then \"echo 'module.exports = PS;' >> ./output/bundle.js; yarn start-skpm;\" build --skip-entry-point --to ./output/bundle.js",
+    "setup": "yarn global add purescript pulp bower skpm && bower i"
+  },
+  "dependencies": {
+    "@skpm/builder": "latest",
+    "bower": "latest",
+    "pulp": "latest",
+    "purescript": "latest",
+    "regenerator-runtime": "^0.13.3"
+  }
+}

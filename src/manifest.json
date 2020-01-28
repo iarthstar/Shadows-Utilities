@@ -1,0 +1,47 @@
+{
+  "name": "Demo Plugin",
+  "description": "Demo Plugin : Template for Purs-Skpm",
+  "version": "0.0.1",
+  "compatibleVersion": "56",
+  "$schema": "https://raw.githubusercontent.com/BohemianCoding/SketchAPI/develop/docs/sketch-plugin-manifest-schema.json",
+  "icon": "icon.png",
+  "commands": [
+    {
+      "name": "Copy",
+      "identifier": "demo-plugin.copy",
+      "shortcut": "ctrl shift p",
+      "script": "./Commands.js",
+      "handler": "copyShadows"
+    },
+    {
+      "name": "Cut",
+      "identifier": "demo-plugin.cut",
+      "shortcut": "ctrl shift o",
+      "script": "./Commands.js",
+      "handler": "cutShadows"
+    },
+    {
+      "name": "Paste",
+      "identifier": "demo-plugin.paste",
+      "shortcut": "ctrl shift i",
+      "script": "./Commands.js",
+      "handler": "pasteShadows"
+    },
+    {
+      "name": "Remove",
+      "identifier": "demo-plugin.remove",
+      "shortcut": "ctrl shift u",
+      "script": "./Commands.js",
+      "handler": "deleteShadows"
+    }
+  ],
+  "menu": {
+    "title": "Demo Plugin",
+    "items": [
+      "demo-plugin.copy",
+      "demo-plugin.cut",
+      "demo-plugin.paste",
+      "demo-plugin.remove"
+    ]
+  }
+}
