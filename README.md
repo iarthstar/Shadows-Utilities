@@ -30,10 +30,6 @@ An Utility Plugin for shadows i.e Copy, Paste, Cut and Delete Shadows.
 
 [Download](https://github.com/iarthstar/Shadows-Utilities/releases/download/2.1.0/Shadows-Utilities.sketchplugin.zip) or clone the repository, and double click Shadows-Utilities.sketchplugin
 
-## Install using Sketchpacks
-
-[![Install PLUGIN NAME with Sketchpacks](http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png "Install PLUGIN NAME with Sketchpacks")](https://www.sketchpacks.com/iarthstar/copy-paste-shadows/install)
-
 ## Development Guide
 
 #### NOTE : Please make sure you have yarn :: [Installing yarn](https://yarnpkg.com/en/docs/install)
