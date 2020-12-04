@@ -28,7 +28,7 @@ An Utility Plugin for shadows i.e Copy, Paste, Cut and Delete Shadows.
 
 ## Install
 
-[Download](https://github.com/iarthstar/Shadows-Utilities/releases/download/2.1.0/Shadows-Utilities.sketchplugin.zip) or clone the repository, and double click Shadows-Utilities.sketchplugin
+[Download](https://gum.co/shadows-utilities) and double click Shadows-Utilities.sketchplugin
 
 ## Development Guide
 
